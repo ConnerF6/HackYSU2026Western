@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cgpv6l0ut337y"]
+
+[node name="Ball" type="Node3D"]

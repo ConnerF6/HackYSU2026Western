@@ -1,0 +1,200 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdg1lanm1firw"]
+
+[ext_resource type="PackedScene" uid="uid://1am1h022qflx" path="res://Models/WesternArea.glb" id="1_3dryh"]
+[ext_resource type="PackedScene" uid="uid://lj6dywt2s8uk" path="res://Models/Target.glb" id="2_wowpa"]
+[ext_resource type="Script" uid="uid://cu6odg7bwayt6" path="res://Scripts/movingtarget.gd" id="3_i6g32"]
+[ext_resource type="PackedScene" uid="uid://bqjqcfrx5x2ro" path="res://Models/TumbleWeed.glb" id="4_1l0tm"]
+[ext_resource type="Script" uid="uid://j11f1m20ue78" path="res://Models/tumble_weed.gd" id="5_i6g32"]
+[ext_resource type="Script" uid="uid://p82r7vatccuy" path="res://Scenes/camera_rig.gd" id="5_wowpa"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1l0tm"]
+height = 0.115128
+radius = 0.610352
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v158k"]
+height = 0.115128
+radius = 1.32715
+
+[sub_resource type="Environment" id="Environment_wowpa"]
+background_mode = 1
+background_color = Color(0.101961, 0.0627451, 0.145098, 1)
+ambient_light_color = Color(0.239216, 0.164706, 0.101961, 1)
+ambient_light_energy = 0.3
+fog_enabled = true
+fog_light_color = Color(0.301012, 0.263369, 0.267429, 1)
+fog_density = 0.03
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.164706, 0.121569, 0.101961, 1)
+volumetric_fog_emission = Color(0.101961, 0.0588235, 0.0313726, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="Enviorment" type="Node3D" parent="."]
+
+[node name="Objects" type="Node3D" parent="Enviorment"]
+
+[node name="WesternArea" parent="Enviorment/Objects" instance=ExtResource("1_3dryh")]
+
+[node name="Targets" type="Node3D" parent="Enviorment/Objects"]
+
+[node name="BottomRow" type="Node3D" parent="Enviorment/Objects/Targets"]
+
+[node name="Target" parent="Enviorment/Objects/Targets/BottomRow" instance=ExtResource("2_wowpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3327, 0, 5.40294)
+script = ExtResource("3_i6g32")
+speed = 1.0
+
+[node name="Area3D" type="Area3D" parent="Enviorment/Objects/Targets/BottomRow/Target"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/Objects/Targets/BottomRow/Target/Area3D"]
+transform = Transform3D(0.0540962, 0.998536, 0, -0.998536, 0.0540962, 0, 0, 0, 1, -11.8276, 2.03604, -0.0063982)
+shape = SubResource("CylinderShape3D_1l0tm")
+
+[node name="Target2" parent="Enviorment/Objects/Targets/BottomRow" instance=ExtResource("2_wowpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278877, 0, -10.3488)
+script = ExtResource("3_i6g32")
+speed = 1.2
+
+[node name="Area3D" type="Area3D" parent="Enviorment/Objects/Targets/BottomRow/Target2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/Objects/Targets/BottomRow/Target2/Area3D"]
+transform = Transform3D(0.0540962, 0.998536, 0, -0.998536, 0.0540962, 0, 0, 0, 1, -11.8276, 2.03604, -0.0063982)
+shape = SubResource("CylinderShape3D_1l0tm")
+
+[node name="TopRow" type="Node3D" parent="Enviorment/Objects/Targets"]
+
+[node name="Target3" parent="Enviorment/Objects/Targets/TopRow" instance=ExtResource("2_wowpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.21651, 2.69157, -10.4025)
+script = ExtResource("3_i6g32")
+speed = 1.1
+
+[node name="Area3D" type="Area3D" parent="Enviorment/Objects/Targets/TopRow/Target3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/Objects/Targets/TopRow/Target3/Area3D"]
+transform = Transform3D(0.0540962, 0.998536, 0, -0.998536, 0.0540962, 0, 0, 0, 1, -11.8276, 2.03604, -0.0063982)
+shape = SubResource("CylinderShape3D_1l0tm")
+
+[node name="Target4" parent="Enviorment/Objects/Targets/TopRow" instance=ExtResource("2_wowpa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60493, 2.69157, 6.05935)
+script = ExtResource("3_i6g32")
+speed = 1.3
+
+[node name="Area3D" type="Area3D" parent="Enviorment/Objects/Targets/TopRow/Target4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/Objects/Targets/TopRow/Target4/Area3D"]
+transform = Transform3D(0.0540962, 0.998536, 0, -0.998536, 0.0540962, 0, 0, 0, 1, -11.8276, 2.03604, -0.0063982)
+shape = SubResource("CylinderShape3D_1l0tm")
+
+[node name="TumbleWeeds" type="Node3D" parent="Enviorment/Objects/Targets"]
+
+[node name="TumbleWeedBottom" parent="Enviorment/Objects/Targets/TumbleWeeds" instance=ExtResource("4_1l0tm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322396, -0.0212021, -3.01659)
+script = ExtResource("5_i6g32")
+speed_multiplier = 0.8
+stutter_chance = 0.4
+
+[node name="Area3D" type="Area3D" parent="Enviorment/Objects/Targets/TumbleWeeds/TumbleWeedBottom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/Objects/Targets/TumbleWeeds/TumbleWeedBottom/Area3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -11.5963, 2.16825, -1.45747)
+shape = SubResource("CylinderShape3D_v158k")
+
+[node name="TumbleWeedTop" parent="Enviorment/Objects/Targets/TumbleWeeds" instance=ExtResource("4_1l0tm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35781, 2.42764, 2.4646)
+script = ExtResource("5_i6g32")
+start_at_max = true
+
+[node name="Area3D" type="Area3D" parent="Enviorment/Objects/Targets/TumbleWeeds/TumbleWeedTop"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviorment/Objects/Targets/TumbleWeeds/TumbleWeedTop/Area3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -11.5963, 2.16825, -1.45747)
+shape = SubResource("CylinderShape3D_v158k")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviorment"]
+environment = SubResource("Environment_wowpa")
+
+[node name="Lighting" type="Node3D" parent="Enviorment"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(-0.330063, -0.222708, 0.917311, 0.70455, 0.588613, 0.396414, -0.628226, 0.777133, -0.0373706, 0, 5.96257, -11.6587)
+light_color = Color(0.533333, 0.6, 0.733333, 1)
+light_energy = 0.4
+
+[node name="OmniLight3D1" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.993, 3.93169, 4.16459)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.993, 3.93169, -6.98615)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.993, 3.93169, 1.54619)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.993, 3.93169, -4.64833)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.993, 3.93169, -1.85668)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4954, 0.527904, 3.72097)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4954, 0.527904, -6.98615)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4954, 0.527904, 1.54619)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4954, 0.527904, -4.64833)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Enviorment/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4954, 0.527904, -1.85668)
+light_color = Color(1, 0.823529, 0.2, 1)
+light_energy = 5.0
+light_indirect_energy = 0.0
+
+[node name="CameraRig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.067, 2.594, -2)
+script = ExtResource("5_wowpa")
+center_position = Vector3(1.067, 2.594, -2)
+left_position = Vector3(1.067, 2.594, 11)
+left_rotation_y = 25.0
+right_position = Vector3(1.067, 2.594, -12)
+right_rotation_y = -60.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(-4.37114e-08, -0.0871557, 0.996195, 0, 0.996195, 0.0871557, -1, 3.8097e-09, -4.35451e-08, 0.0702822, 0.597978, -0.0496178)
+keep_aspect = 0
+fov = 80.0
+
+[node name="Player" type="Node3D" parent="."]
+
+[node name="GameManager" type="Node" parent="."]
