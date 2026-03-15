@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bdg1lanm1firw"]
+[gd_scene load_steps=42 format=4 uid="uid://bdg1lanm1firw"]
 
 [ext_resource type="PackedScene" uid="uid://1am1h022qflx" path="res://Models/WesternArea.glb" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://lj6dywt2s8uk" path="res://Models/Target.glb" id="2_wowpa"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://benq2i182xoyi" path="res://Scripts/flash_overlay.gd" id="9_rfjv2"]
 [ext_resource type="PackedScene" uid="uid://bf0xkifkowrhd" path="res://Scenes/ball_shooter.tscn" id="10_ldgsr"]
 [ext_resource type="Script" uid="uid://c601gfjubsq5p" path="res://Scripts/game_manager.gd" id="10_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://cc774ko2w6c4" path="res://Audio/Untitled song.mp3" id="13_exi56"]
 [ext_resource type="Script" uid="uid://b0e7tewujvcyc" path="res://Scripts/Threat.gd" id="14_ewbju"]
 [ext_resource type="AudioStream" uid="uid://0r2kawqbnwd0" path="res://Audio/malarbrush-camera-flash-204151.mp3" id="15_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://6djkyn1qccfb" path="res://ArtAssets/rioekjth5kjwyyhudhtty.png" id="15_85qyi"]
@@ -481,6 +482,12 @@ transform = Transform3D(0.375601, 0.218812, -0.90058, 0.0455646, 0.966194, 0.253
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("10_o5yvi")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GameManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87912, 0, 0)
+stream = ExtResource("13_exi56")
+autoplay = true
+parameters/looping = true
+
 [node name="LeftBreaker" type="Node3D" parent="."]
 
 [node name="BreakerPrt1" parent="LeftBreaker" instance=ExtResource("6_rku1e")]
@@ -571,6 +578,7 @@ transform = Transform3D(0.140113, 0, -0.207047, 0, 0.25, 0, 0.207047, 0, 0.14011
 texture = ExtResource("15_85qyi")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Zombie"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.02133, 0, 18.7331)
 stream = ExtResource("18_7nbq1")
 
 [node name="Rat" type="Node3D" parent="."]
