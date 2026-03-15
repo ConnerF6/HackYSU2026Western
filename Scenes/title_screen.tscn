@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5hol1yy8fepe"]
+[gd_scene load_steps=3 format=3 uid="uid://c5hol1yy8fepe"]
 
 [ext_resource type="Script" uid="uid://bbieaqf4s251x" path="res://Scripts/title_screen.gd" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://6y5pbr8fi5ka" path="res://ArtAssets/western shootout title.png" id="2_p3fck"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -38,5 +39,9 @@ offset_right = 1097.0
 offset_bottom = 623.0
 scale = Vector2(1.15802, 1.89483)
 text = "Credits: Conner Farnsworth & Sonia DiBlasio"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(523, 346)
+texture = ExtResource("2_p3fck")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
