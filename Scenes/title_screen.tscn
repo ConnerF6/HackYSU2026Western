@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5hol1yy8fepe"]
+
+[ext_resource type="Script" uid="uid://bbieaqf4s251x" path="res://Scripts/title_screen.gd" id="1_klylv"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_klylv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -10.0
+offset_right = 18.0
+offset_bottom = 30.0
+scale = Vector2(31.2805, 16.8126)
+color = Color(0.265967, 0.216606, 0.217104, 1)
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1012.0
+offset_top = 23.0
+offset_right = 1053.0
+offset_bottom = 54.0
+scale = Vector2(2.92425, 2.55835)
+text = "Play
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 597.0
+offset_right = 1097.0
+offset_bottom = 623.0
+scale = Vector2(1.15802, 1.89483)
+text = "Credits: Conner Farnsworth & Sonia DiBlasio"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

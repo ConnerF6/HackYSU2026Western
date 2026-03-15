@@ -12,3 +12,15 @@ config_version=5
 
 config/name="Western_Spook-out"
 config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+DeathReason="*res://Scripts/DeathReason.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[global_group]
+
+Targets=""
