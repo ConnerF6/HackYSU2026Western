@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var min_time: float = 5.0
+@export var min_time: float = 7.0
 @export var max_time: float = 10.0
 
 @onready var audio = $AudioStreamPlayer3D

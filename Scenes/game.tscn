@@ -479,14 +479,16 @@ transform = Transform3D(0.375601, 0.218812, -0.90058, 0.0455646, 0.966194, 0.253
 
 [node name="AudioListener3D" type="AudioListener3D" parent="CameraRig"]
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("10_o5yvi")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GameManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87912, 0, 0)
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.319099, 0.379539, -0.0433517)
 stream = ExtResource("13_exi56")
+volume_db = 6.0
+max_db = 6.0
 autoplay = true
 parameters/looping = true
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("10_o5yvi")
 
 [node name="LeftBreaker" type="Node3D" parent="."]
 
